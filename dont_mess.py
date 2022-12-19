@@ -19,7 +19,7 @@ def config():
     page_icon= image1)
 
 def home():
-    st.title('WW-p hss podcast')
+    st.title('WW-P HSS Podcast')
     col1, col2 = st.columns(2)
     with col1:
             st.image(image2)
