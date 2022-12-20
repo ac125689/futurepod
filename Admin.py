@@ -5,7 +5,7 @@ conn = sq.connect('data.db')
 c  = conn.cursor()
 
 def create_data():
-    c.execute('CREATE TABLE IF NOT EXISTS poddata(date DATE,name TEXT,type_of TEXT,tittle TEXT,description TEXT,vid)')
+    c.execute('CREATE TABLE IF NOT EXISTS poddata(date DATE,name TEXT,type_of TEXT,tittle TEXT,description TEXT,vid BLOB)')
 def add_data(date,name,type_of,tittle,description,vid):
     c.execute('INSERT INTO poddata(date,name,type_of,tittle,description,vid) VALUES (?,?,?,?,?,?)',(date,name,type_of,tittle,description,vid))
     conn.commit()
