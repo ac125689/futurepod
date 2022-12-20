@@ -14,7 +14,7 @@ def main():
         selected = option_menu(
             menu_title=None,
             options=['Home', 'Sutudents in WW-P HSS', 'Podcast sign-up form','Search your favorite podcast','Admin'],
-            icons=['house-door-fill','list', 'card-checklist','search','person-fill'],
+            icons=['house-door-fill','list', 'card-checklist','search-heart','person-fill'],
             menu_icon='cast'
     )
     if selected == 'Home':
