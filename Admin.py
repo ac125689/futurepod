@@ -11,7 +11,7 @@ def admin():
     username = st.sidebar.text_input('Username')
     password = st.sidebar.text_input('Password',type='password')
     if st.sidebar.checkbox("Login"):
-        if password == f'ADMIN {h} : {m}':
+        if password == f'ADMIN{h}{m}':
             st.success(f'Logined as {username}')
             tab1, tab2 = st.tabs(['Video or Podcast Uplode','comeing soon'])
             with tab1:
