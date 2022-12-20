@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 from dont_mess import home,config,hide_st
 from podcast_sign import sign_up_from
 from pod_instructions import instructions
-from Admin import admin,view_data
+from Admin import admin,new_pod
 
 config()
 hide_st()
