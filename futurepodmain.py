@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 from dont_mess import home,config,hide_st
 from podcast_sign import sign_up_from
 from pod_instructions import instructions
-from Admin import admin
+from Admin import admin,view_data
 
 config()
 hide_st()
@@ -13,8 +13,8 @@ def main():
     with st.sidebar:
         selected = option_menu(
             menu_title=None,
-            options=['Home', 'Sutudents in WW-P HSS', 'Podcast sign-up form','Search your favorite podcast','Admin'],
-            icons=['house-door-fill','list', 'card-checklist','search','person-fill'],
+            options=['Home', 'Sutudents in WW-P HSS', 'Podcast sign-up form','Look at new podcast','Search your favorite podcast','Admin'],
+            icons=['house-door-fill','list', 'card-checklist','binoculars','search','person-fill'],
             menu_icon='cast'
     )
     if selected == 'Home':
