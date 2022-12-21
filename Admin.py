@@ -8,6 +8,14 @@ def podcast_audio(file_name,date,name_of_the_auther,type_of_podcast,tittle_of_po
     st.write(Description_of_the_Podcast)
     st.audio(f'Podcast/{file_name}', format= 'audio/mp3')
 
+def podcast_video(file_name,date,name_of_the_auther,type_of_podcast,tittle_of_podcast,Description_of_the_Podcast):
+    st.header(date)
+    st.subheader(tittle_of_podcast)
+    st.caption(f'By: {name_of_the_auther}')
+    st.write(f'Type of Podcast: {type_of_podcast}')
+    st.write(Description_of_the_Podcast)
+    st.video(f'Podcast/{file_name}', format= 'video/mp4')
+
 
 
 def admin():
@@ -21,6 +29,7 @@ def admin():
             with tab1:
                 st.subheader('Video or Podcast Uplode')
                 podcast_audio('test1.mp3','12/21/2022','abhi','lala','BOBO',"dvasdvasvasdfvkhsbdfvsbdfvosdnvfisdbvflnsdfvsdfvnlsdfvbsdofv")
+                podcast_video('test1.mp4','12/21/2022','abhi','lala','BOBO',"dvasdvasvasdfvkhsbdfvsbdfvosdnvfisdbvflnsdfvsdfvnlsdfvbsdofv")
             with tab2:
                 st.subheader('Post')
 
