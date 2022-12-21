@@ -25,19 +25,12 @@ def load_the_spreadsheet(spreadsheetname):
     worksheet = sh.worksheet(spreadsheetname)
     df = DataFrame(worksheet.get_all_records())
     return df
-def load_the_Podcast_post_spreadsheet():
-    worksheet = sh.worksheet('Podcast post')
-    df = DataFrame(worksheet.get_all_records())
-    return df
 def update_the_signup_spreadsheet(dataframe):
     col = ['Date','Block 1', 'Block 2', 'Block 3', 'Lunch A', 'Lunch B', 'Block 5', 'Block 6']
     spread.df_to_sheet(dataframe[col],sheet = 'Sign-up name',index = False)
 def update_the_nameOfPeople_spreadsheet(dataframe):
     col = ['Date','Name of the person who regster','Email of the person who regster', 'Other 1', 'Other 2', 'Other 3']
     spread.df_to_sheet(dataframe[col],sheet = 'name of people recording',index = False)
-def update_the_Podcast_post_spreadsheet(dataframe):
-    col = ['Date','Name', 'Type of podcast', 'Tittle', 'Description', 'Podcast']
-    spread.df_to_sheet(dataframe[col],sheet = 'Podcast post',index = False)
 
 def sign_up_from():
     st.title('Podcast Sign-up Form')

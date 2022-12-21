@@ -1,8 +1,34 @@
 import streamlit as st
 import datetime as dt
 from pandas import DataFrame
-from podcast_sign import load_the_Podcast_post_spreadsheet,update_the_Podcast_post_spreadsheet
+from google.oauth2 import service_account
+from gspread_pandas import Spread,Client
 
+# Create a connection object.
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+# Create a Google Authentication connection object
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+
+credentials = service_account.Credentials.from_service_account_info(
+                st.secrets["gcp_service_account"], scopes = scope)
+client = Client(scope=scope,creds=credentials)
+spreadsheetname = "podcast test"
+spread = Spread(spreadsheetname,client = client)
+# Perform SQL query on the Google Sheet.
+# Uses st.cache to only rerun when the query changes or after 10 min.
+sh = client.open(spreadsheetname)
+worksheet_list = sh.worksheets()
+
+def update_the_Podcast_post_spreadsheet(dataframe):
+    col = ['Date','Name', 'Type of podcast', 'Tittle', 'Description', 'Podcast']
+    spread.df_to_sheet(dataframe[col],sheet = 'Podcast post',index = False)
+def load_the_Podcast_post_spreadsheet():
+    worksheet = sh.worksheet('Podcast post')
+    df = DataFrame(worksheet.get_all_records())
+    return df
 
 def admin():
     st.header('Admin login')
