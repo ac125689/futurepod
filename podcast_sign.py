@@ -21,23 +21,23 @@ spread = Spread(spreadsheetname,client = client)
 sh = client.open(spreadsheetname)
 worksheet_list = sh.worksheets()
 
-
-def worksheet_names():
-    sheet_names = []   
-    for sheet in worksheet_list:
-        sheet_names.append(sheet.title)  
-    return sheet_names
-
 def load_the_spreadsheet(spreadsheetname):
     worksheet = sh.worksheet(spreadsheetname)
     df = DataFrame(worksheet.get_all_records())
     return df
-def update_the_signup_spreadsheet(spreadsheetname,dataframe):
+def load_the_Podcast_post_spreadsheet():
+    worksheet = sh.worksheet('Podcast post')
+    df = DataFrame(worksheet.get_all_records())
+    return df
+def update_the_signup_spreadsheet(dataframe):
     col = ['Date','Block 1', 'Block 2', 'Block 3', 'Lunch A', 'Lunch B', 'Block 5', 'Block 6']
-    spread.df_to_sheet(dataframe[col],sheet = spreadsheetname,index = False)
-def update_the_nameOfPeople_spreadsheet(spreadsheetname,dataframe):
+    spread.df_to_sheet(dataframe[col],sheet = 'Sign-up name',index = False)
+def update_the_nameOfPeople_spreadsheet(dataframe):
     col = ['Date','Name of the person who regster','Email of the person who regster', 'Other 1', 'Other 2', 'Other 3']
-    spread.df_to_sheet(dataframe[col],sheet = spreadsheetname,index = False)
+    spread.df_to_sheet(dataframe[col],sheet = 'name of people recording',index = False)
+def update_the_Podcast_post_spreadsheet(dataframe):
+    col = ['Date','Name', 'Type of podcast', 'Tittle', 'Description', 'Podcast']
+    spread.df_to_sheet(dataframe[col],sheet = 'Podcast post',index = False)
 
 def sign_up_from():
     st.title('Podcast Sign-up Form')
@@ -90,7 +90,7 @@ def sign_up_from():
             opt_df = DataFrame(opt)
             df = load_the_spreadsheet('Sign-up name')
             new_df = df.append(opt_df,ignore_index=True)
-            update_the_signup_spreadsheet('Sign-up name',new_df)
+            update_the_signup_spreadsheet(new_df)
             opt2 = {'Date' :[date],
             'Name of the person who regster' : [firstLastName],
             'Email of the person who regster' : [email],
@@ -100,6 +100,6 @@ def sign_up_from():
             opt2_df = DataFrame(opt2)
             df2 = load_the_spreadsheet('name of people recording')
             new_df2 = df2.append(opt2_df,ignore_index=True)
-            update_the_nameOfPeople_spreadsheet('name of people recording',new_df2)
+            update_the_nameOfPeople_spreadsheet(new_df2)
         st.success("You are good to go.")
         st.balloons()
