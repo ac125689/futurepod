@@ -13,8 +13,8 @@ def main():
     with st.sidebar:
         selected = option_menu(
             menu_title=None,
-            options=['Home', 'Sutudents in WW-P HSS', 'Podcast sign-up form','Look at new podcast','Search your favorite podcast','Admin'],
-            icons=['house-door-fill','list', 'card-checklist','binoculars','search','person-fill'],
+            options=['Home', 'Sutudents in WW-P HSS', 'Podcast sign-up form','Audio podcast','Video podcast','Admin'],
+            icons=['house-door-fill','list', 'card-checklist','mic-fill','file-play-fill','person-fill'],
             menu_icon='cast'
     )
     if selected == 'Home':
