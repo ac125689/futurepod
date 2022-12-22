@@ -1,6 +1,6 @@
 import streamlit as st
 
-def podcast_audio(file_name,date,name_of_the_auther,type_of_podcast,tittle_of_podcast,Description_of_the_Podcast):
+def podcast_audio(file_name : str,date:str,name_of_the_auther:str,type_of_podcast:str,tittle_of_podcast:str,Description_of_the_Podcast:str):
     st.header(date)
     st.subheader(tittle_of_podcast)
     st.caption(f'By: {name_of_the_auther}')
@@ -8,7 +8,7 @@ def podcast_audio(file_name,date,name_of_the_auther,type_of_podcast,tittle_of_po
     st.write(Description_of_the_Podcast)
     st.audio(f'Podcast/{file_name}', format= 'audio/mp3')
 
-def podcast_video(file_name,date,name_of_the_auther,type_of_podcast,tittle_of_podcast,Description_of_the_Podcast):
+def podcast_video(file_name:str,date:str,name_of_the_auther:str,type_of_podcast:str,tittle_of_podcast:str,Description_of_the_Podcast:str):
     st.header(date)
     st.subheader(tittle_of_podcast)
     st.caption(f'By: {name_of_the_auther}')
@@ -25,13 +25,12 @@ def admin():
     if st.sidebar.checkbox("Login"):
         if password == 'ADMINOFHSS':
             st.success(f'Logined as {username}')
-            tab1, tab2 = st.tabs(['Video or Podcast Uplode','Looking at all the post'])
+            tab1, tab2 = st.tabs(['Audio Podcast Uplode','Video Podcast Uploade'])
             with tab1:
-                st.subheader('Video or Podcast Uplode')
-                podcast_audio('test1.mp3','12/21/2022','abhi','lala','BOBO',"dvasdvasvasdfvkhsbdfvsbdfvosdnvfisdbvflnsdfvsdfvnlsdfvbsdofv")
-                podcast_video('test1.mp4','12/21/2022','abhi','lala','BOBO',"dvasdvasvasdfvkhsbdfvsbdfvosdnvfisdbvflnsdfvsdfvnlsdfvbsdofv")
+                st.subheader('Audio Podcast Uplode')
+
             with tab2:
-                st.subheader('Post')
+                st.subheader('Video Podcast Uploade')
 
         else:
             st.warning('Your not the Admin')
