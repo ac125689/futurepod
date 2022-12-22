@@ -1,8 +1,8 @@
 import streamlit as st
 from PIL import Image
 
-image1 = Image.open('WW-P HSS.png')
-image2 = Image.open('WW-P HSS copy.png')
+image1 = Image.open('icon/WW-P HSS.png')
+image2 = Image.open('icon/WW-P HSS copy.png')
 def hide_st():
     hide_st_style = """
             <style>
