@@ -4,6 +4,8 @@ from dont_mess import home,config,hide_st
 from podcast_sign import sign_up_from
 from pod_instructions import instructions
 from Admin import admin
+from audio_podcast import audio
+from video_podcast import video
 
 config()
 hide_st()
@@ -23,6 +25,10 @@ def main():
         instructions()
     if selected == 'Podcast sign-up form':
         sign_up_from()
+    if selected == 'Audio podcast':
+        audio()
+    if selected == 'Video podcast':
+        video()
     if selected == 'Admin':
         admin()
 if __name__ == "__main__":
